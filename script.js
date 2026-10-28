@@ -116,6 +116,7 @@ function renderTable(data) {
 
     data.forEach((item, index) => {
         const row = document.createElement('tr');
+        // DÜZELTME: Eksik olan çarpı işareti eklendi
         row.style.animationDelay = `${index * 0.05}s`;
 
         row.innerHTML = `
@@ -165,6 +166,7 @@ searchInput.addEventListener('input', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const isLoggedIn = sessionStorage.getItem('isLoggedIn');
     
+    H
     if (isLoggedIn === 'true') {
         loginOverlay.classList.add('hidden');
         fetchProductsFromSupabase();

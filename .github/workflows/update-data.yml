@@ -1,10 +1,10 @@
 name: E-Ticaret Otomatik Veri Botu
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '0 * * * *' # Her saat başı otomatik çalışır
-  workflow_dispatch: # GitHub panelinden manuel test edebilmek için
-
+    - cron: '*/5 * * * *' # Her 5 dakikada bir otomatik çalıştırır
+    
 jobs:
   run-bot:
     runs-on: ubuntu-latest
