@@ -1,0 +1,27 @@
+name: E-Ticaret Otomatik Veri Botu
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Her saat başı otomatik çalışır
+  workflow_dispatch: # GitHub panelinden manuel test edebilmek için
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GitHub Kodlarını Çek
+        uses: actions/checkout@v3
+
+      - name: Node.js Ortamını Kur
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Paketleri Yükle
+        run: npm install
+
+      - name: Botu Çalıştır
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: node scraper.js

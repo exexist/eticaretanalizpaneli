@@ -1,0 +1,12 @@
+{
+  "name": "trdecent-scraper",
+  "version": "1.0.0",
+  "description": "E-Ticaret Anlık Veri Botu",
+  "main": "scraper.js",
+  "type": "module",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12"
+  }
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trdecent Analytics - Canlı E-Ticaret Analizi</title>
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Özel CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Arka Plan Parlama Efektleri (Glow) -->
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <!-- GİRİŞ EKRANI (LOGIN OVERLAY) -->
+    <div id="loginOverlay" class="login-overlay">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h2>Trdecent<span>Analytics</span></h2>
+                <p>Paneli görüntülemek için lütfen giriş yapın</p>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="input-group">
+                    <label for="username">Kullanıcı Adı</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="username" placeholder="Kullanıcı adınızı girin" required autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Şifre</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" placeholder="Şifrenizi girin" required>
+                    </div>
+                </div>
+
+                <div id="loginError" class="login-error hidden">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <span>Kullanıcı adı veya şifre hatalı!</span>
+                </div>
+
+                <button type="submit" class="login-btn">
+                    <span>Giriş Yap</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h2>Trdecent<span>Analytics</span></h2>
+            </div>
+            <div class="nav-right">
+                <div class="live-status">
+                    <span class="ping-dot"></span>
+                    <span>Canlı Veri Akışı (TR)</span>
+                </div>
+                <button id="logoutBtn" class="logout-btn" title="Çıkış Yap">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Ana İçerik -->
+    <main class="container main-content">
+
+        <!-- Özet İstatistik Kartları -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="card-header">
+                    <span>En Trend Kategori</span>
+                    <i class="fa-solid fa-fire text-orange"></i>
+                </div>
+                <h3>Giyim & Moda</h3>
+                <span class="badge badge-success">↑ %24 artış (Son 24s)</span>
+            </div>
+
+            <div class="stat-card">
+                <div class="card-header">
+                    <span>Anlık En Çok Aranan</span>
+                    <i class="fa-solid fa-bolt text-blue"></i>
+                </div>
+                <h3>Robot Süpürge</h3>
+                <span class="sub-text">142.000+ arama</span>
+            </div>
+
+            <div class="stat-card">
+                <div class="card-header">
+                    <span>Ortalama Sepet Tutarı</span>
+                    <i class="fa-solid fa-basket-shopping text-emerald"></i>
+                </div>
+                <h3>1.250 ₺</h3>
+                <span class="sub-text">Günlük ortalama</span>
+            </div>
+
+            <div class="stat-card">
+                <div class="card-header">
+                    <span>İşlenen Veri Noktası</span>
+                    <i class="fa-solid fa-database text-purple"></i>
+                </div>
+                <h3>1.4 Milyon</h3>
+                <span class="sub-text">Pazaryeri canlı akışı</span>
+            </div>
+        </section>
+
+        <!-- Filtre ve Arama Çubuğu -->
+        <section class="controls-card">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Ürün adı veya kategori ara...">
+            </div>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">Tümü</button>
+                <button class="filter-btn" data-category="Elektronik">Elektronik</button>
+                <button class="filter-btn" data-category="Giyim">Giyim</button>
+                <button class="filter-btn" data-category="Kozmetik">Kozmetik</button>
+                <button class="filter-btn" data-category="Yaşam">Ev & Yaşam</button>
+            </div>
+        </section>
+
+        <!-- Tablo Alanı -->
+        <section class="table-card">
+            <div class="table-header">
+                <div>
+                    <h3>En Çok Satanlar & Trend Analizi</h3>
+                    <p>Türkiye e-ticaret pazaryeri anlık verileri</p>
+                </div>
+                <div class="pulse-indicator">
+                    <span class="pulse-dot"></span>
+                    Her 10sn'de güncellenir
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ürün Adı</th>
+                            <th>Kategori</th>
+                            <th>Ort. Fiyat</th>
+                            <th>Satış Hızı</th>
+                            <th>Trend Analizi</th>
+                            <th class="text-right">Stok Durumu</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productTableBody">
+                        <!-- JS ile dolacak -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    
+    <!-- Supabase JS Client Kütüphanesi -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- 1. ÖNCE Supabase Kütüphanesi yüklenmeli -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- 2. SONRA senin script.js dosyan yüklenmeli -->
+    <script src="script.js"></script>
+</body>
+</html>
+</body>
+</html>
